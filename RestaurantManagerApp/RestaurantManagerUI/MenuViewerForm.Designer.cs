@@ -79,7 +79,7 @@
             this.removeMenuItemButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.removeMenuItemButton.Location = new System.Drawing.Point(33, 564);
             this.removeMenuItemButton.Name = "removeMenuItemButton";
-            this.removeMenuItemButton.Size = new System.Drawing.Size(197, 50);
+            this.removeMenuItemButton.Size = new System.Drawing.Size(228, 50);
             this.removeMenuItemButton.TabIndex = 9;
             this.removeMenuItemButton.Text = "Remove Selected";
             this.removeMenuItemButton.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             this.updateMenuItemButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.updateMenuItemButton.Location = new System.Drawing.Point(33, 476);
             this.updateMenuItemButton.Name = "updateMenuItemButton";
-            this.updateMenuItemButton.Size = new System.Drawing.Size(197, 50);
+            this.updateMenuItemButton.Size = new System.Drawing.Size(228, 50);
             this.updateMenuItemButton.TabIndex = 8;
             this.updateMenuItemButton.Text = "Update Selected";
             this.updateMenuItemButton.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.addMenuItemButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.addMenuItemButton.Location = new System.Drawing.Point(33, 390);
             this.addMenuItemButton.Name = "addMenuItemButton";
-            this.addMenuItemButton.Size = new System.Drawing.Size(197, 50);
+            this.addMenuItemButton.Size = new System.Drawing.Size(228, 50);
             this.addMenuItemButton.TabIndex = 7;
             this.addMenuItemButton.Text = "Add New Menu Item";
             this.addMenuItemButton.UseVisualStyleBackColor = true;
