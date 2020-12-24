@@ -37,8 +37,7 @@ namespace RestaurantManagerUI
                 MessageBox.Show("Invalid Form.");
             }
         }
-
-        // TODO - Refactor validation
+        
         private bool ValidateFormInputs()
         {
             bool isFormValid = true;
