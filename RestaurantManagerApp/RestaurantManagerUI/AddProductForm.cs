@@ -24,12 +24,9 @@ namespace RestaurantManagerUI
             if (ValidateFormInputs())
             {
                 ProductModel product = new ProductModel(productNameValue.Text, portionCountValue.Text, unitValue.Text, portionSizeValue.Text);
-
-                foreach (var connection in GlobalConfig.Connections)
-                {
-                    connection.CreateProduct(product);
-                }
-
+                
+                GlobalConfig.Connection.CreateProduct(product);
+                
                 SetFieldsToDefaultValues();
             }
             else
