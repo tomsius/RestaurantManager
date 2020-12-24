@@ -16,7 +16,14 @@ namespace RestaurantManagerUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RestaurantManagerForm());
+
+            // Initialize connections
+            RestaurantLibrary.GlobalConfig.InitializeConnections();
+
+            //Application.Run(new RestaurantManagerForm());
+
+            // TODO - Remove after done testing
+            Application.Run(new AddProductForm());
         }
     }
 }
