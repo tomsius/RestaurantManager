@@ -66,6 +66,12 @@
     <Compile Include="StockViewerForm.Designer.cs">
       <DependentUpon>StockViewerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateProductForm.Designer.cs">
+      <DependentUpon>UpdateProductForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddProductForm.resx">
       <DependentUpon>AddProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +89,9 @@
     </Compile>
     <EmbeddedResource Include="StockViewerForm.resx">
       <DependentUpon>StockViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProductForm.resx">
+      <DependentUpon>UpdateProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
