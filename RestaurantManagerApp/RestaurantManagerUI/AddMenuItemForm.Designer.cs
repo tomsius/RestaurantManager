@@ -52,7 +52,7 @@
             // 
             // menuItemNameValue
             // 
-            this.menuItemNameValue.Location = new System.Drawing.Point(156, 133);
+            this.menuItemNameValue.Location = new System.Drawing.Point(265, 133);
             this.menuItemNameValue.Name = "menuItemNameValue";
             this.menuItemNameValue.Size = new System.Drawing.Size(217, 43);
             this.menuItemNameValue.TabIndex = 7;
@@ -84,7 +84,7 @@
             this.ingredientsDropDown.FormattingEnabled = true;
             this.ingredientsDropDown.Location = new System.Drawing.Point(37, 274);
             this.ingredientsDropDown.Name = "ingredientsDropDown";
-            this.ingredientsDropDown.Size = new System.Drawing.Size(336, 45);
+            this.ingredientsDropDown.Size = new System.Drawing.Size(445, 45);
             this.ingredientsDropDown.TabIndex = 9;
             // 
             // ingredientsListBox
@@ -95,7 +95,7 @@
             this.ingredientsListBox.ItemHeight = 30;
             this.ingredientsListBox.Location = new System.Drawing.Point(37, 374);
             this.ingredientsListBox.Name = "ingredientsListBox";
-            this.ingredientsListBox.Size = new System.Drawing.Size(336, 182);
+            this.ingredientsListBox.Size = new System.Drawing.Size(445, 182);
             this.ingredientsListBox.TabIndex = 10;
             // 
             // removeIngredientButton
@@ -133,7 +133,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(843, 805);
+            this.ClientSize = new System.Drawing.Size(565, 805);
             this.Controls.Add(this.createMenuItemButton);
             this.Controls.Add(this.removeIngredientButton);
             this.Controls.Add(this.ingredientsListBox);
