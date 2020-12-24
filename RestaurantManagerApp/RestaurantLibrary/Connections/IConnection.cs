@@ -1,6 +1,6 @@
 ﻿using RestaurantLibrary.Models;
 
-namespace RestaurantLibrary
+namespace RestaurantLibrary.Connections
 {
     public interface IConnection
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestaurantLibrary.Models;
 
-namespace RestaurantLibrary
+namespace RestaurantLibrary.Connections
 {
     public class TextConnector : IConnection
     {
