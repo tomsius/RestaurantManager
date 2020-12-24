@@ -16,3 +16,6 @@ C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\
 C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.StockViewerForm.resources
 C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.UpdateMenuItemForm.resources
 C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.UpdateProductForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\bin\Debug\RestaurantLibrary.dll
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\bin\Debug\RestaurantLibrary.pdb
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.csproj.CopyComplete
