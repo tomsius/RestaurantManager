@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IConnection.cs" />
     <Compile Include="MenuItemModel.cs" />
     <Compile Include="MenuModel.cs" />
     <Compile Include="OrderModel.cs" />
