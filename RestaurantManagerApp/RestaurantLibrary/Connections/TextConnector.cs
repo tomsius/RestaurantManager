@@ -9,7 +9,11 @@ namespace RestaurantLibrary.Connections
 {
     public class TextConnector : IConnection
     {
-        /// TODO - Implement writing to file
+        /// <summary>
+        /// Represents file name for ProductModel rows.
+        /// </summary>
+        private const string ProductsFile = "Products.csv";
+
         /// <summary>
         /// Adds row to file
         /// </summary>
@@ -17,9 +21,26 @@ namespace RestaurantLibrary.Connections
         /// <returns>The product information with unique identifier.</returns>
         public ProductModel CreateProduct(ProductModel product)
         {
-            product.Id = 1;
+            List<ProductModel> products = TextFileUtilities.GetProductRowsFrom(ProductsFile);
+
+            int newId = FindNewAvailableProductId(products);
+            product.Id = newId;
+
+            products.Add(product);
+
+            TextFileUtilities.SaveToProductsFile(products, ProductsFile);
 
             return product;
+        }
+
+        private int FindNewAvailableProductId(List<ProductModel> products)
+        {
+            if (products.Count == 0)
+            {
+                return 1;
+            }
+
+            return products.OrderByDescending(p => p.Id).First().Id + 1;
         }
     }
 }
