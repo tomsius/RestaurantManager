@@ -1,4 +1,5 @@
-﻿using RestaurantLibrary;
+﻿using RestaurantLibrary.Models;
+using RestaurantLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

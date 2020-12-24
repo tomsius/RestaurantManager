@@ -1,4 +1,4 @@
-﻿namespace RestaurantLibrary
+﻿namespace RestaurantLibrary.Models
 {
     public class ProductModel
     {

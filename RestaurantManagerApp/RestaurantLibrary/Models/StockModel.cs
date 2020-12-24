@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RestaurantLibrary
+namespace RestaurantLibrary.Models
 {
     public class StockModel
     {

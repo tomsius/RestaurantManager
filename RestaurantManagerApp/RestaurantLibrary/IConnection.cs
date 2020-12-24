@@ -1,4 +1,6 @@
-﻿namespace RestaurantLibrary
+﻿using RestaurantLibrary.Models;
+
+namespace RestaurantLibrary
 {
     public interface IConnection
     {
