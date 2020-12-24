@@ -64,6 +64,12 @@
     <Compile Include="MenuViewerForm.Designer.cs">
       <DependentUpon>MenuViewerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrdersViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdersViewerForm.Designer.cs">
+      <DependentUpon>OrdersViewerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuViewerForm.resx">
       <DependentUpon>MenuViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersViewerForm.resx">
+      <DependentUpon>OrdersViewerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RestaurantManagerForm.resx">
       <DependentUpon>RestaurantManagerForm.cs</DependentUpon>
