@@ -54,7 +54,7 @@
             this.productsListBox.ItemHeight = 30;
             this.productsListBox.Location = new System.Drawing.Point(34, 162);
             this.productsListBox.Name = "productsListBox";
-            this.productsListBox.Size = new System.Drawing.Size(500, 182);
+            this.productsListBox.Size = new System.Drawing.Size(585, 182);
             this.productsListBox.TabIndex = 2;
             // 
             // productsLabel
@@ -118,7 +118,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(830, 678);
+            this.ClientSize = new System.Drawing.Size(663, 678);
             this.Controls.Add(this.removeProductButton);
             this.Controls.Add(this.updateProductButton);
             this.Controls.Add(this.addProductButton);
