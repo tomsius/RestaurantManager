@@ -9,6 +9,11 @@ namespace RestaurantLibrary
     public class OrderModel
     {
         /// <summary>
+        /// Represents unique identifier of order
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Represents the date when order was created
         /// </summary>
         public DateTime Date { get; set; }

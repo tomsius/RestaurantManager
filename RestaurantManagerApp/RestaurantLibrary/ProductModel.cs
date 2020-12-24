@@ -3,6 +3,11 @@
     public class ProductModel
     {
         /// <summary>
+        /// Represents unique identifier of product
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Represent the product's name
         /// </summary>
         public string Name { get; set; }
