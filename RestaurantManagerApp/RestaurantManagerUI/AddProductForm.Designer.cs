@@ -58,9 +58,9 @@
             this.productNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.productNameLabel.Location = new System.Drawing.Point(30, 120);
             this.productNameLabel.Name = "productNameLabel";
-            this.productNameLabel.Size = new System.Drawing.Size(182, 37);
+            this.productNameLabel.Size = new System.Drawing.Size(187, 37);
             this.productNameLabel.TabIndex = 4;
-            this.productNameLabel.Text = "Product name";
+            this.productNameLabel.Text = "Product Name";
             // 
             // productNameValue
             // 
@@ -102,9 +102,9 @@
             this.unitLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.unitLabel.Location = new System.Drawing.Point(30, 264);
             this.unitLabel.Name = "unitLabel";
-            this.unitLabel.Size = new System.Drawing.Size(67, 37);
+            this.unitLabel.Size = new System.Drawing.Size(166, 37);
             this.unitLabel.TabIndex = 8;
-            this.unitLabel.Text = "Unit";
+            this.unitLabel.Text = "Product Unit";
             // 
             // portionSizeValue
             // 
