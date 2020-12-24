@@ -82,7 +82,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.Name = "OrdersViewerForm";
-            this.Text = "OrdersViewerForm";
+            this.Text = "Orders";
             this.ResumeLayout(false);
             this.PerformLayout();
 
