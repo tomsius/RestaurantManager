@@ -1,0 +1,10 @@
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\bin\Debug\RestaurantManagerUI.exe.config
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\bin\Debug\RestaurantManagerUI.exe
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\bin\Debug\RestaurantManagerUI.pdb
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.csprojAssemblyReference.cache
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.RestaurantManagerForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.Properties.Resources.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.csproj.GenerateResource.cache
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.exe
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.pdb
