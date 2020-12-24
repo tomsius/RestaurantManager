@@ -8,3 +8,11 @@ C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\
 C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.exe
 C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.pdb
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.AddMenuItemForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.AddOrderForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.AddProductForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.MenuViewerForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.OrdersViewerForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.StockViewerForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.UpdateMenuItemForm.resources
+C:\Users\User\Desktop\restaurant_manager\RestaurantManager\RestaurantManagerApp\RestaurantManagerUI\obj\Debug\RestaurantManagerUI.UpdateProductForm.resources
