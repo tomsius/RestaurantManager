@@ -75,7 +75,7 @@
             this.portionCountValue.Name = "portionCountValue";
             this.portionCountValue.Size = new System.Drawing.Size(77, 43);
             this.portionCountValue.TabIndex = 7;
-            this.portionCountValue.Text = "1";
+            this.portionCountValue.Text = "0";
             // 
             // portionCountLabel
             // 
@@ -112,6 +112,7 @@
             this.portionSizeValue.Name = "portionSizeValue";
             this.portionSizeValue.Size = new System.Drawing.Size(77, 43);
             this.portionSizeValue.TabIndex = 11;
+            this.portionSizeValue.Text = "0";
             // 
             // portionSizeLabel
             // 
@@ -138,6 +139,7 @@
             this.addProductButton.TabIndex = 12;
             this.addProductButton.Text = "Add Product";
             this.addProductButton.UseVisualStyleBackColor = true;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
             // AddProductForm
             // 
