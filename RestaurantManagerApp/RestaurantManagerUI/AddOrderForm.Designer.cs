@@ -34,6 +34,7 @@
             this.menuItemsListBox = new System.Windows.Forms.ListBox();
             this.menuItemsDropDown = new System.Windows.Forms.ComboBox();
             this.selectMenuItemsLabel = new System.Windows.Forms.Label();
+            this.addMenuItemButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // headerLabel
@@ -55,7 +56,7 @@
             this.createOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createOrderButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.createOrderButton.Location = new System.Drawing.Point(31, 590);
+            this.createOrderButton.Location = new System.Drawing.Point(31, 627);
             this.createOrderButton.Name = "createOrderButton";
             this.createOrderButton.Size = new System.Drawing.Size(197, 50);
             this.createOrderButton.TabIndex = 25;
@@ -70,7 +71,7 @@
             this.removeMenuItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeMenuItemButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeMenuItemButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.removeMenuItemButton.Location = new System.Drawing.Point(31, 472);
+            this.removeMenuItemButton.Location = new System.Drawing.Point(31, 505);
             this.removeMenuItemButton.Name = "removeMenuItemButton";
             this.removeMenuItemButton.Size = new System.Drawing.Size(197, 50);
             this.removeMenuItemButton.TabIndex = 24;
@@ -83,7 +84,7 @@
             this.menuItemsListBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuItemsListBox.FormattingEnabled = true;
             this.menuItemsListBox.ItemHeight = 30;
-            this.menuItemsListBox.Location = new System.Drawing.Point(31, 262);
+            this.menuItemsListBox.Location = new System.Drawing.Point(31, 297);
             this.menuItemsListBox.Name = "menuItemsListBox";
             this.menuItemsListBox.Size = new System.Drawing.Size(446, 182);
             this.menuItemsListBox.TabIndex = 23;
@@ -107,12 +108,28 @@
             this.selectMenuItemsLabel.TabIndex = 21;
             this.selectMenuItemsLabel.Text = "Select Menu Items";
             // 
+            // addMenuItemButton
+            // 
+            this.addMenuItemButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.addMenuItemButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.addMenuItemButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.addMenuItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addMenuItemButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addMenuItemButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.addMenuItemButton.Location = new System.Drawing.Point(31, 226);
+            this.addMenuItemButton.Name = "addMenuItemButton";
+            this.addMenuItemButton.Size = new System.Drawing.Size(197, 50);
+            this.addMenuItemButton.TabIndex = 26;
+            this.addMenuItemButton.Text = "Add Selected";
+            this.addMenuItemButton.UseVisualStyleBackColor = true;
+            // 
             // AddOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(541, 680);
+            this.ClientSize = new System.Drawing.Size(541, 716);
+            this.Controls.Add(this.addMenuItemButton);
             this.Controls.Add(this.createOrderButton);
             this.Controls.Add(this.removeMenuItemButton);
             this.Controls.Add(this.menuItemsListBox);
@@ -136,5 +153,6 @@
         private System.Windows.Forms.ListBox menuItemsListBox;
         private System.Windows.Forms.ComboBox menuItemsDropDown;
         private System.Windows.Forms.Label selectMenuItemsLabel;
+        private System.Windows.Forms.Button addMenuItemButton;
     }
 }
