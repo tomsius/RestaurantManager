@@ -1,4 +1,5 @@
 ﻿using RestaurantLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -62,7 +63,6 @@ namespace RestaurantLibrary.Connections
             {
                 string[] columns = row.Split(';');
 
-
                 string productName = columns[1];
                 string productCount = columns[2];
                 string productUnit = columns[3];
@@ -91,6 +91,86 @@ namespace RestaurantLibrary.Connections
         private static string ConvertProductToString(ProductModel product)
         {
             return product.Id + ";" + product.Name + ";" + product.PortionCount + ";" + product.Unit + ";" + product.PortionSize;
+        }
+
+        public static List<MenuItemModel> GetMenuItemsRowsFrom(string menuItemsFileName, string productsFileName)
+        {
+            string fullFilePath = GetFullFilePath(menuItemsFileName);
+            List<string> dataRows = LoadFile(fullFilePath);
+            List<MenuItemModel> menuItemList = ConvertToMenuItemList(dataRows, productsFileName);
+
+            return menuItemList;
+        }
+
+        private static List<MenuItemModel> ConvertToMenuItemList(List<string> dataRows, string productsFileName)
+        {
+            List<MenuItemModel> menuItemList = new List<MenuItemModel>();
+
+            foreach (string row in dataRows)
+            {
+                string[] columns = row.Split(';');
+
+                string name = columns[1];
+                string[] ingredientsIds = columns[2].Split(' ');
+
+                List<ProductModel> ingredients = GetIngredientsByIds(ingredientsIds, productsFileName);
+
+                MenuItemModel menuItem = new MenuItemModel(name, ingredients);
+                menuItem.Id = int.Parse(columns[0]);
+
+                menuItemList.Add(menuItem);
+            }
+
+            return menuItemList;
+        }
+
+        private static List<ProductModel> GetIngredientsByIds(string[] ingredientsIds, string productsFileName)
+        {
+            List<ProductModel> ingredients = new List<ProductModel>();
+            List<ProductModel> products = GetProductRowsFrom(productsFileName);
+
+            foreach (string id in ingredientsIds)
+            {
+                ingredients.Add(products.Where(product => product.Id == int.Parse(id)).First());
+            }
+
+            return ingredients;
+        }
+
+        public static void SaveToMenuItemsFile(List<MenuItemModel> menuItems, string fileName)
+        {
+            List<string> rows = new List<string>();
+
+            foreach (MenuItemModel menuItem in menuItems)
+            {
+                rows.Add(ConvertMenuItemToString(menuItem));
+            }
+
+            File.WriteAllLines(GetFullFilePath(fileName), rows);
+        }
+
+        private static string ConvertMenuItemToString(MenuItemModel menuItem)
+        {
+            return menuItem.Id + ";" + menuItem.Name + ";" + ConvertProductIdsToString(menuItem.Ingredients);
+        }
+
+        private static string ConvertProductIdsToString(List<ProductModel> ingredients)
+        {
+            string output = string.Empty;
+
+            if (ingredients.Count == 0)
+            {
+                return output;
+            }
+
+            foreach (ProductModel product in ingredients)
+            {
+                output += product.Id + " ";
+            }
+
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
         }
     }
 }
