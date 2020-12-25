@@ -49,7 +49,6 @@
             this.headerLabel.Size = new System.Drawing.Size(345, 50);
             this.headerLabel.TabIndex = 5;
             this.headerLabel.Text = "Add New Menu Item";
-            this.headerLabel.Click += new System.EventHandler(this.headerLabel_Click);
             // 
             // menuItemNameValue
             // 
@@ -113,6 +112,7 @@
             this.removeIngredientButton.TabIndex = 11;
             this.removeIngredientButton.Text = "Remove Selected";
             this.removeIngredientButton.UseVisualStyleBackColor = true;
+            this.removeIngredientButton.Click += new System.EventHandler(this.removeIngredientButton_Click);
             // 
             // createMenuItemButton
             // 
@@ -128,6 +128,7 @@
             this.createMenuItemButton.TabIndex = 12;
             this.createMenuItemButton.Text = "Create Menu Item";
             this.createMenuItemButton.UseVisualStyleBackColor = true;
+            this.createMenuItemButton.Click += new System.EventHandler(this.createMenuItemButton_Click);
             // 
             // addIngredientButton
             // 
@@ -143,6 +144,7 @@
             this.addIngredientButton.TabIndex = 13;
             this.addIngredientButton.Text = "Add Selected";
             this.addIngredientButton.UseVisualStyleBackColor = true;
+            this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
             // 
             // AddMenuItemForm
             // 
