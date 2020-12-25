@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace RestaurantLibrary.Connections
 {
-    public static class TextFileUtilities
+    public static class TextFileProcessor
     {
         /// <summary>
         /// Reads all data rows from file.

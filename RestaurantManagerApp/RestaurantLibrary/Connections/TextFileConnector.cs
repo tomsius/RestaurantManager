@@ -7,7 +7,7 @@ using RestaurantLibrary.Models;
 
 namespace RestaurantLibrary.Connections
 {
-    public class TextConnector : IConnection
+    public class TextFileConnector : IConnection
     {
         /// <summary>
         /// Represents file name for ProductModel rows.
@@ -23,14 +23,14 @@ namespace RestaurantLibrary.Connections
         /// <returns>The product information with unique identifier.</returns>
         public ProductModel CreateProduct(ProductModel product)
         {
-            List<ProductModel> products = TextFileUtilities.GetProductRowsFrom(ProductsFile);
+            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
 
             int newId = FindNewAvailableProductId(products);
             product.Id = newId;
 
             products.Add(product);
 
-            TextFileUtilities.SaveToProductsFile(products, ProductsFile);
+            TextFileProcessor.SaveToProductsFile(products, ProductsFile);
 
             return product;
         }
@@ -56,21 +56,21 @@ namespace RestaurantLibrary.Connections
         /// <returns>Returns products from file.</returns>
         public List<ProductModel> GetAllProducts()
         {
-            List<ProductModel> products = TextFileUtilities.GetProductRowsFrom(ProductsFile);
+            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
 
             return products;
         }
 
         public MenuItemModel CreateMenuItem(MenuItemModel menuItem)
         {
-            List<MenuItemModel> menuItems = TextFileUtilities.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
 
             int newId = FindNewAvailableMenuItemId(menuItems);
             menuItem.Id = newId;
 
             menuItems.Add(menuItem);
 
-            TextFileUtilities.SaveToMenuItemsFile(menuItems, MenuItemsFile);
+            TextFileProcessor.SaveToMenuItemsFile(menuItems, MenuItemsFile);
 
             return menuItem;
         }

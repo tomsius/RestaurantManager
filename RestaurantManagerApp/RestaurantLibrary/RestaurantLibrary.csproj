@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connections\TextFileUtilities.cs" />
+    <Compile Include="Connections\TextFileProcessor.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="Connections\IConnection.cs" />
     <Compile Include="Models\MenuItemModel.cs" />
@@ -52,7 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\RestaurantModel.cs" />
     <Compile Include="Models\StockModel.cs" />
-    <Compile Include="Connections\TextConnector.cs" />
+    <Compile Include="Connections\TextFileConnector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

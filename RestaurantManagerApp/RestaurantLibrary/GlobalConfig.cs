@@ -10,7 +10,7 @@ namespace RestaurantLibrary
         public static void InitializeConnections()
         {
             // TODO - Set up Text Connector properly
-            TextConnector textConnector = new TextConnector();
+            TextFileConnector textConnector = new TextFileConnector();
             Connection = textConnector;
         }
     }
