@@ -14,6 +14,8 @@ namespace RestaurantLibrary.Connections
         /// </summary>
         private const string ProductsFile = "Products.csv";
 
+        private const string MenuItemsFile = "MenuItems.csv";
+
         /// <summary>
         /// Adds row to file
         /// </summary>
@@ -33,6 +35,11 @@ namespace RestaurantLibrary.Connections
             return product;
         }
 
+        /// <summary>
+        /// Finds new highest unique identifier.
+        /// </summary>
+        /// <param name="products">List of prodcts to find new unique identifier from.</param>
+        /// <returns>Returns new unique identifier to use.</returns>
         private int FindNewAvailableProductId(List<ProductModel> products)
         {
             if (products.Count == 0)
@@ -40,7 +47,42 @@ namespace RestaurantLibrary.Connections
                 return 1;
             }
 
-            return products.OrderByDescending(p => p.Id).First().Id + 1;
+            return products.OrderByDescending(product => product.Id).First().Id + 1;
+        }
+
+        /// <summary>
+        /// Gets all products stored in file.
+        /// </summary>
+        /// <returns>Returns products from file.</returns>
+        public List<ProductModel> GetAllProducts()
+        {
+            List<ProductModel> products = TextFileUtilities.GetProductRowsFrom(ProductsFile);
+
+            return products;
+        }
+
+        public MenuItemModel CreateMenuItem(MenuItemModel menuItem)
+        {
+            List<MenuItemModel> menuItems = TextFileUtilities.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+
+            int newId = FindNewAvailableMenuItemId(menuItems);
+            menuItem.Id = newId;
+
+            menuItems.Add(menuItem);
+
+            TextFileUtilities.SaveToMenuItemsFile(menuItems, MenuItemsFile);
+
+            return menuItem;
+        }
+
+        private int FindNewAvailableMenuItemId(List<MenuItemModel> menuItems)
+        {
+            if (menuItems.Count == 0)
+            {
+                return 1;
+            }
+
+            return menuItems.OrderByDescending(menuItem => menuItem.Id).First().Id + 1;
         }
     }
 }
