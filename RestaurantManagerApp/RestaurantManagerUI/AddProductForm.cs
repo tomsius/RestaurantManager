@@ -14,9 +14,13 @@ namespace RestaurantManagerUI
 {
     public partial class AddProductForm : Form
     {
-        public AddProductForm()
+        IProductRequester callingForm;
+
+        public AddProductForm(IProductRequester caller)
         {
             InitializeComponent();
+
+            callingForm = caller;
         }
 
         private void addProductButton_Click(object sender, EventArgs e)
@@ -25,9 +29,14 @@ namespace RestaurantManagerUI
             {
                 ProductModel product = new ProductModel(productNameValue.Text, portionCountValue.Text, unitValue.Text, portionSizeValue.Text);
                 
-                GlobalConfig.Connection.CreateProduct(product);
+                product = GlobalConfig.Connection.CreateProduct(product);
+
+                callingForm.CompleteProduct(product);
+
+                this.Close();
                 
-                SetFieldsToDefaultValues();
+                //TODO - Delete code
+                //SetFieldsToDefaultValues();
             }
             else
             {
