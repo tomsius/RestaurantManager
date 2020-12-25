@@ -27,6 +27,8 @@
         /// </summary>
         public double PortionSize { get; set; }
 
+        public ProductModel() { }
+
         public ProductModel(string productName, string portionCount, string unit, string portionSize)
         {
             Name = productName;
