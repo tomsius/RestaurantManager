@@ -18,5 +18,11 @@ namespace RestaurantLibrary.Models
         /// Represents the products required for the menu item
         /// </summary>
         public List<ProductModel> Ingredients { get; set; } = new List<ProductModel>();
+
+        public MenuItemModel(string name, List<ProductModel> ingredients)
+        {
+            Name = name;
+            Ingredients = ingredients;
+        }
     }
 }
