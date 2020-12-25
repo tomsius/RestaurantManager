@@ -38,12 +38,10 @@ namespace RestaurantManagerUI
         private void WireUpLists()
         {
             ingredientsDropDown.DataSource = null;
-
             ingredientsDropDown.DataSource = availableIngredients;
             ingredientsDropDown.DisplayMember = "Name";
 
             ingredientsListBox.DataSource = null;
-
             ingredientsListBox.DataSource = selectedIngredients;
             ingredientsListBox.DisplayMember = "Name";
         }
