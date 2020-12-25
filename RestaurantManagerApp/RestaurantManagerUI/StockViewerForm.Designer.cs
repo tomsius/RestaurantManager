@@ -82,6 +82,7 @@
             this.addProductButton.TabIndex = 4;
             this.addProductButton.Text = "Add New Product";
             this.addProductButton.UseVisualStyleBackColor = true;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
             // updateProductButton
             // 
