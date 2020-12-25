@@ -21,7 +21,7 @@ namespace RestaurantManagerUI
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
-            if (ValidateFormInputs())
+            if (AreFormInputsValid())
             {
                 ProductModel product = new ProductModel(productNameValue.Text, portionCountValue.Text, unitValue.Text, portionSizeValue.Text);
                 
@@ -35,7 +35,7 @@ namespace RestaurantManagerUI
             }
         }
         
-        private bool ValidateFormInputs()
+        private bool AreFormInputsValid()
         {
             bool isFormValid = true;
 
