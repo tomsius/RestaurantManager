@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace RestaurantManagerUI
 {
-    public partial class StockViewerForm : Form, IProductRequester
+    public partial class StockViewerForm : Form, IProductRequester, IProductChanger
     {
         private List<ProductModel> stock = GlobalConfig.Connection.GetAllProducts();
 
@@ -36,7 +36,7 @@ namespace RestaurantManagerUI
             form.Show();
         }
 
-        public void CompleteProduct(ProductModel product)
+        public void CompleteProductCreation(ProductModel product)
         {
             stock.Add(product);
 
@@ -47,8 +47,14 @@ namespace RestaurantManagerUI
         {
             ProductModel product = (ProductModel)productsListBox.SelectedItem;
 
-            UpdateProductForm form = new UpdateProductForm(product);
+            UpdateProductForm form = new UpdateProductForm(this, product);
             form.Show();
+        }
+
+        public void CompleteProductUpdate()
+        {
+            stock = GlobalConfig.Connection.GetAllProducts();
+            WireUpLists();
         }
     }
 }

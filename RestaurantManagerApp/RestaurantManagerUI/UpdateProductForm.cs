@@ -14,12 +14,14 @@ namespace RestaurantManagerUI
 {
     public partial class UpdateProductForm : Form
     {
+        private IProductChanger callingFrom;
         private ProductModel product;
 
-        public UpdateProductForm(ProductModel product)
+        public UpdateProductForm(IProductChanger caller, ProductModel product)
         {
             InitializeComponent();
 
+            callingFrom = caller;
             this.product = product;
 
             InitializeFormFields();
@@ -40,6 +42,8 @@ namespace RestaurantManagerUI
                 ProductModel newProduct = new ProductModel(productNameValue.Text, portionCountValue.Text, unitValue.Text, portionSizeValue.Text);
 
                 GlobalConfig.Connection.UpdateProduct(product.Id, newProduct);
+
+                callingFrom.CompleteProductUpdate();
 
                 this.Close();
             }
