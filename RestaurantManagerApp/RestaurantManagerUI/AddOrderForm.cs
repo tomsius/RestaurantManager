@@ -37,12 +37,25 @@ namespace RestaurantManagerUI
 
         private void addMenuItemButton_Click(object sender, EventArgs e)
         {
-            MenuItemModel product = (MenuItemModel)menuItemsDropDown.SelectedItem;
+            MenuItemModel menuItem = (MenuItemModel)menuItemsDropDown.SelectedItem;
 
-            if (product != null)
+            if (menuItem != null)
             {
-                availableMenuItems.Remove(product);
-                selectedMenuItems.Add(product);
+                availableMenuItems.Remove(menuItem);
+                selectedMenuItems.Add(menuItem);
+
+                WireUpLists();
+            }
+        }
+
+        private void removeMenuItemButton_Click(object sender, EventArgs e)
+        {
+            MenuItemModel menuItem = (MenuItemModel)menuItemsListBox.SelectedItem;
+
+            if (menuItem != null)
+            {
+                selectedMenuItems.Remove(menuItem);
+                availableMenuItems.Add(menuItem);
 
                 WireUpLists();
             }
