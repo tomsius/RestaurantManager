@@ -51,10 +51,25 @@ namespace RestaurantManagerUI
             form.Show();
         }
 
-        public void CompleteProductUpdate()
+        public void CompleteProductUpdate(ProductModel newProduct)
         {
-            stock = GlobalConfig.Connection.GetAllProducts();
+            foreach (ProductModel product in stock)
+            {
+                if (newProduct.Id == product.Id)
+                {
+                    product.Name = newProduct.Name;
+                    product.PortionCount = newProduct.PortionCount;
+                    product.Unit = newProduct.Unit;
+                    product.PortionSize = newProduct.PortionSize;
+                }
+            }
+
             WireUpLists();
+        }
+
+        private void removeProductButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
