@@ -69,7 +69,13 @@ namespace RestaurantManagerUI
 
         private void removeProductButton_Click(object sender, EventArgs e)
         {
+            ProductModel product = (ProductModel)productsListBox.SelectedItem;
 
+            GlobalConfig.Connection.RemoveProduct(product.Id);
+
+            stock.Remove(product);
+
+            WireUpLists();
         }
     }
 }
