@@ -10,6 +10,7 @@ namespace RestaurantLibrary.Connections
         List<ProductModel> GetAllProducts();
         ProductModel UpdateProduct(int id, ProductModel newProduct);
         MenuItemModel UpdateMenuItem(int id, MenuItemModel newMenuItem);
-
+        void RemoveProduct(int id);
+        void RemoveMenuItem(int id);
     }
 }
