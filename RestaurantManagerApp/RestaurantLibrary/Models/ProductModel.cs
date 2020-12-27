@@ -27,6 +27,13 @@
         /// </summary>
         public double PortionSize { get; set; }
 
+        public string DisplayName {
+            get 
+            {
+                return string.Format("{0,-4}{1,-16}{2,-4}{3,-10}{4,-5}", Id.ToString(), Name, PortionCount.ToString(), Unit, PortionSize.ToString());
+            }
+        }
+
         public ProductModel() { }
 
         public ProductModel(string productName, string portionCount, string unit, string portionSize)
