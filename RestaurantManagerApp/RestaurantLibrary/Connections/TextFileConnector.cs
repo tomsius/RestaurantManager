@@ -114,5 +114,26 @@ namespace RestaurantLibrary.Connections
         {
             throw new NotImplementedException();
         }
+
+        public void RemoveProduct(int id)
+        {
+            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
+            List<ProductModel> newProductList = new List<ProductModel>();
+
+            foreach (ProductModel product in products)
+            {
+                if (product.Id != id)
+                {
+                    newProductList.Add(product);
+                }
+            }
+
+            TextFileProcessor.SaveToProductsFile(newProductList, ProductsFile);
+        }
+
+        public void RemoveMenuItem(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
