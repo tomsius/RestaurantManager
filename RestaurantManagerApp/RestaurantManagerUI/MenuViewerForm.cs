@@ -69,7 +69,7 @@ namespace RestaurantManagerUI
         {
             MenuItemModel menuItem = (MenuItemModel)menuItemsListBox.SelectedItem;
 
-            GlobalConfig.Connection.RemoveMenuItem(menuItem.Id);
+            GlobalConfig.Connection.DeleteMenuItem(menuItem.Id);
 
             menuItems.Remove(menuItem);
 

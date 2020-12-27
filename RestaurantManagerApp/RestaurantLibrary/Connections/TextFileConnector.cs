@@ -140,7 +140,7 @@ namespace RestaurantLibrary.Connections
             menuItem.Ingredients = newMenuItem.Ingredients;
         }
 
-        public void RemoveProduct(int id)
+        public void DeleteProduct(int id)
         {
             List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
             List<ProductModel> newProductList = new List<ProductModel>();
@@ -156,7 +156,7 @@ namespace RestaurantLibrary.Connections
             TextFileProcessor.SaveToProductsFile(newProductList, ProductsFile);
         }
 
-        public void RemoveMenuItem(int id)
+        public void DeleteMenuItem(int id)
         {
             List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
             List<MenuItemModel> newMenuItemList = new List<MenuItemModel>();

@@ -71,7 +71,7 @@ namespace RestaurantManagerUI
         {
             ProductModel product = (ProductModel)productsListBox.SelectedItem;
 
-            GlobalConfig.Connection.RemoveProduct(product.Id);
+            GlobalConfig.Connection.DeleteProduct(product.Id);
 
             stock.Remove(product);
 
