@@ -110,7 +110,7 @@ namespace RestaurantManagerUI
             {
                 MenuItemModel newMenuItem = new MenuItemModel(menuItemNameValue.Text, selectedIngredients);
 
-                newMenuItem = GlobalConfig.Connection.UpdateMenuItem(menuItem.Id, newMenuItem);
+                GlobalConfig.Connection.UpdateMenuItem(menuItem.Id, newMenuItem);
 
                 callingFrom.CompleteMenuItemUpdate(newMenuItem);
 

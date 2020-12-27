@@ -23,7 +23,7 @@ namespace RestaurantLibrary.Connections
         /// </summary>
         /// <param name="product">The product information.</param>
         /// <returns>The product information with unique identifier.</returns>
-        public ProductModel CreateProduct(ProductModel product)
+        public void CreateProduct(ProductModel product)
         {
             List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
 
@@ -33,8 +33,6 @@ namespace RestaurantLibrary.Connections
             products.Add(product);
 
             TextFileProcessor.SaveToProductsFile(products, ProductsFile);
-
-            return product;
         }
 
         /// <summary>
@@ -70,7 +68,7 @@ namespace RestaurantLibrary.Connections
             return menuItems;
         }
 
-        public MenuItemModel CreateMenuItem(MenuItemModel menuItem)
+        public void CreateMenuItem(MenuItemModel menuItem)
         {
             List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
 
@@ -80,8 +78,6 @@ namespace RestaurantLibrary.Connections
             menuItems.Add(menuItem);
 
             TextFileProcessor.SaveToMenuItemsFile(menuItems, MenuItemsFile);
-
-            return menuItem;
         }
 
         private int FindNewAvailableMenuItemId(List<MenuItemModel> menuItems)
@@ -94,7 +90,7 @@ namespace RestaurantLibrary.Connections
             return menuItems.OrderByDescending(menuItem => menuItem.Id).First().Id + 1;
         }
 
-        public ProductModel UpdateProduct(int id, ProductModel newProduct)
+        public void UpdateProduct(int id, ProductModel newProduct)
         {
             List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
 
@@ -104,11 +100,8 @@ namespace RestaurantLibrary.Connections
                 {
                     UpdateProductWith(product, newProduct);
                     TextFileProcessor.SaveToProductsFile(products, ProductsFile);
-                    return product;
                 }
             }
-
-            return null;
         }
 
         private void UpdateProductWith(ProductModel product, ProductModel newProduct)
@@ -119,7 +112,7 @@ namespace RestaurantLibrary.Connections
             product.PortionSize = newProduct.PortionSize;
         }
 
-        public MenuItemModel UpdateMenuItem(int id, MenuItemModel newMenuItem)
+        public void UpdateMenuItem(int id, MenuItemModel newMenuItem)
         {
             List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
 
@@ -129,11 +122,8 @@ namespace RestaurantLibrary.Connections
                 {
                     UpdateMenuItemtWith(menuItem, newMenuItem);
                     TextFileProcessor.SaveToMenuItemsFile(menuItems, MenuItemsFile);
-                    return menuItem;
                 }
             }
-
-            return null;
         }
 
         private void UpdateMenuItemtWith(MenuItemModel menuItem, MenuItemModel newMenuItem)
@@ -174,7 +164,7 @@ namespace RestaurantLibrary.Connections
             TextFileProcessor.SaveToMenuItemsFile(newMenuItemList, MenuItemsFile);
         }
 
-        public OrderModel CreateOrder(OrderModel order)
+        public void CreateOrder(OrderModel order)
         {
             List<OrderModel> orders = TextFileProcessor.GetOrderRowsFrom(OrdersFile, MenuItemsFile, ProductsFile);
 
@@ -184,8 +174,6 @@ namespace RestaurantLibrary.Connections
             orders.Add(order);
 
             TextFileProcessor.SaveToOrdersFile(orders, OrdersFile);
-
-            return order;
         }
 
         private int FindNewAvailableOrderId(List<OrderModel> orders)

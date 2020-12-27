@@ -71,7 +71,7 @@ namespace RestaurantManagerUI
             {
                 MenuItemModel menuItem = new MenuItemModel(menuItemNameValue.Text, selectedIngredients);
 
-                menuItem = GlobalConfig.Connection.CreateMenuItem(menuItem);
+                GlobalConfig.Connection.CreateMenuItem(menuItem);
 
                 callingForm.CompleteMenuItemCreation(menuItem);
 

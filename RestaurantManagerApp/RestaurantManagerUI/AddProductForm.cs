@@ -29,7 +29,7 @@ namespace RestaurantManagerUI
             {
                 ProductModel product = new ProductModel(productNameValue.Text, portionCountValue.Text, unitValue.Text, portionSizeValue.Text);
                 
-                product = GlobalConfig.Connection.CreateProduct(product);
+                GlobalConfig.Connection.CreateProduct(product);
 
                 callingForm.CompleteProductCreation(product);
 
