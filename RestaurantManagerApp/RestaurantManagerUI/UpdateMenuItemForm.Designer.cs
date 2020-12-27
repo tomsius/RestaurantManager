@@ -53,6 +53,7 @@
             this.updateMenuItemButton.TabIndex = 20;
             this.updateMenuItemButton.Text = "Update Menu Item";
             this.updateMenuItemButton.UseVisualStyleBackColor = true;
+            this.updateMenuItemButton.Click += new System.EventHandler(this.updateMenuItemButton_Click);
             // 
             // removeIngredientButton
             // 
@@ -68,6 +69,7 @@
             this.removeIngredientButton.TabIndex = 19;
             this.removeIngredientButton.Text = "Remove Selected";
             this.removeIngredientButton.UseVisualStyleBackColor = true;
+            this.removeIngredientButton.Click += new System.EventHandler(this.removeIngredientButton_Click);
             // 
             // ingredientsListBox
             // 
@@ -142,6 +144,7 @@
             this.addIngredientButton.TabIndex = 21;
             this.addIngredientButton.Text = "Add Selected";
             this.addIngredientButton.UseVisualStyleBackColor = true;
+            this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
             // 
             // UpdateMenuItemForm
             // 

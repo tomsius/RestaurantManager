@@ -77,5 +77,86 @@ namespace RestaurantManagerUI
             ingredientsListBox.DataSource = selectedIngredients;
             ingredientsListBox.DisplayMember = "Name";
         }
+
+        private void addIngredientButton_Click(object sender, EventArgs e)
+        {
+            ProductModel product = (ProductModel)ingredientsDropDown.SelectedItem;
+
+            if (product != null)
+            {
+                availableIngredients.Remove(product);
+                selectedIngredients.Add(product);
+
+                WireUpLists();
+            }
+        }
+
+        private void removeIngredientButton_Click(object sender, EventArgs e)
+        {
+            ProductModel product = (ProductModel)ingredientsListBox.SelectedItem;
+
+            if (product != null)
+            {
+                selectedIngredients.Remove(product);
+                availableIngredients.Add(product);
+
+                WireUpLists();
+            }
+        }
+
+        private void updateMenuItemButton_Click(object sender, EventArgs e)
+        {
+            if (AreFormInputsValid())
+            {
+                MenuItemModel newMenuItem = new MenuItemModel(menuItemNameValue.Text, selectedIngredients);
+
+                newMenuItem = GlobalConfig.Connection.UpdateMenuItem(menuItem.Id, newMenuItem);
+
+                callingFrom.CompleteMenuItemUpdate(newMenuItem);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Form.");
+            }
+        }
+
+        private bool AreFormInputsValid()
+        {
+            bool isFormValid = true;
+
+            if (!IsNameValid())
+            {
+                isFormValid = false;
+            }
+
+            if (AreIngredientsEmpty())
+            {
+                isFormValid = false;
+            }
+
+            return isFormValid;
+        }
+
+        private bool IsNameValid()
+        {
+            if (menuItemNameValue.Text.Length == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool AreIngredientsEmpty()
+        {
+            if (selectedIngredients.Count == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
