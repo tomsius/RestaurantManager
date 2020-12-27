@@ -14,7 +14,7 @@ namespace RestaurantManagerUI
 {
     public partial class AddProductForm : Form
     {
-        IProductRequester callingForm;
+        private IProductRequester callingForm;
 
         public AddProductForm(IProductRequester caller)
         {
@@ -31,7 +31,7 @@ namespace RestaurantManagerUI
                 
                 product = GlobalConfig.Connection.CreateProduct(product);
 
-                callingForm.CompleteProduct(product);
+                callingForm.CompleteProductCreation(product);
 
                 this.Close();
             }

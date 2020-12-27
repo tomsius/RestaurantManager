@@ -9,6 +9,6 @@ namespace RestaurantManagerUI
 {
     public interface IProductRequester
     {
-        void CompleteProduct(ProductModel product);
+        void CompleteProductCreation(ProductModel product);
     }
 }
