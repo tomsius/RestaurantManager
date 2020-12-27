@@ -34,5 +34,18 @@ namespace RestaurantManagerUI
             menuItemsListBox.DataSource = selectedMenuItems;
             menuItemsListBox.DisplayMember = "Name";
         }
+
+        private void addMenuItemButton_Click(object sender, EventArgs e)
+        {
+            MenuItemModel product = (MenuItemModel)menuItemsDropDown.SelectedItem;
+
+            if (product != null)
+            {
+                availableMenuItems.Remove(product);
+                selectedMenuItems.Add(product);
+
+                WireUpLists();
+            }
+        }
     }
 }

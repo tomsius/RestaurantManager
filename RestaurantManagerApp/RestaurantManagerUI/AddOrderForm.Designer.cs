@@ -122,6 +122,7 @@
             this.addMenuItemButton.TabIndex = 26;
             this.addMenuItemButton.Text = "Add Selected";
             this.addMenuItemButton.UseVisualStyleBackColor = true;
+            this.addMenuItemButton.Click += new System.EventHandler(this.addMenuItemButton_Click);
             // 
             // AddOrderForm
             // 
