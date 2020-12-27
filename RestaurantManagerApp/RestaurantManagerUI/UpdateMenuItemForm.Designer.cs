@@ -36,6 +36,7 @@
             this.menuItemNameValue = new System.Windows.Forms.TextBox();
             this.menuItemNameLabel = new System.Windows.Forms.Label();
             this.headerLabel = new System.Windows.Forms.Label();
+            this.addIngredientButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // updateMenuItemButton
@@ -61,7 +62,7 @@
             this.removeIngredientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeIngredientButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeIngredientButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.removeIngredientButton.Location = new System.Drawing.Point(34, 577);
+            this.removeIngredientButton.Location = new System.Drawing.Point(34, 595);
             this.removeIngredientButton.Name = "removeIngredientButton";
             this.removeIngredientButton.Size = new System.Drawing.Size(197, 50);
             this.removeIngredientButton.TabIndex = 19;
@@ -74,7 +75,7 @@
             this.ingredientsListBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ingredientsListBox.FormattingEnabled = true;
             this.ingredientsListBox.ItemHeight = 30;
-            this.ingredientsListBox.Location = new System.Drawing.Point(34, 367);
+            this.ingredientsListBox.Location = new System.Drawing.Point(34, 396);
             this.ingredientsListBox.Name = "ingredientsListBox";
             this.ingredientsListBox.Size = new System.Drawing.Size(446, 182);
             this.ingredientsListBox.TabIndex = 18;
@@ -127,12 +128,28 @@
             this.headerLabel.TabIndex = 13;
             this.headerLabel.Text = "Update Selected Menu Item";
             // 
+            // addIngredientButton
+            // 
+            this.addIngredientButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.addIngredientButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.addIngredientButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.addIngredientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addIngredientButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addIngredientButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.addIngredientButton.Location = new System.Drawing.Point(34, 330);
+            this.addIngredientButton.Name = "addIngredientButton";
+            this.addIngredientButton.Size = new System.Drawing.Size(197, 50);
+            this.addIngredientButton.TabIndex = 21;
+            this.addIngredientButton.Text = "Add Selected";
+            this.addIngredientButton.UseVisualStyleBackColor = true;
+            // 
             // UpdateMenuItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(512, 782);
+            this.Controls.Add(this.addIngredientButton);
             this.Controls.Add(this.updateMenuItemButton);
             this.Controls.Add(this.removeIngredientButton);
             this.Controls.Add(this.ingredientsListBox);
@@ -160,5 +177,6 @@
         private System.Windows.Forms.TextBox menuItemNameValue;
         private System.Windows.Forms.Label menuItemNameLabel;
         private System.Windows.Forms.Label headerLabel;
+        private System.Windows.Forms.Button addIngredientButton;
     }
 }
