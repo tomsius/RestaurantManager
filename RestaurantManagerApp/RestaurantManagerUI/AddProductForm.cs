@@ -34,9 +34,6 @@ namespace RestaurantManagerUI
                 callingForm.CompleteProduct(product);
 
                 this.Close();
-                
-                //TODO - Delete code
-                //SetFieldsToDefaultValues();
             }
             else
             {
@@ -135,14 +132,6 @@ namespace RestaurantManagerUI
             }
 
             return true;
-        }
-
-        private void SetFieldsToDefaultValues()
-        {
-            productNameValue.Text = string.Empty;
-            portionCountValue.Text = "0";
-            unitValue.Text = string.Empty;
-            portionSizeValue.Text = "0";
         }
     }
 }
