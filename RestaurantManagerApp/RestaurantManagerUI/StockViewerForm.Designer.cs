@@ -98,6 +98,7 @@
             this.updateProductButton.TabIndex = 5;
             this.updateProductButton.Text = "Update Selected";
             this.updateProductButton.UseVisualStyleBackColor = true;
+            this.updateProductButton.Click += new System.EventHandler(this.updateProductButton_Click);
             // 
             // removeProductButton
             // 
