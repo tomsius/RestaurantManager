@@ -69,6 +69,7 @@
             this.createOrderButton.TabIndex = 20;
             this.createOrderButton.Text = "Create New Order";
             this.createOrderButton.UseVisualStyleBackColor = true;
+            this.createOrderButton.Click += new System.EventHandler(this.createOrderButton_Click);
             // 
             // OrdersViewerForm
             // 
