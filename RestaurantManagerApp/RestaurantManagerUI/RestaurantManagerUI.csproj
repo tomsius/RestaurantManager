@@ -64,6 +64,8 @@
     <Compile Include="AddProductForm.Designer.cs">
       <DependentUpon>AddProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMenuItemChanger.cs" />
+    <Compile Include="IMenuItemRequester.cs" />
     <Compile Include="IProductChanger.cs" />
     <Compile Include="IProductRequester.cs" />
     <Compile Include="MenuViewerForm.cs">

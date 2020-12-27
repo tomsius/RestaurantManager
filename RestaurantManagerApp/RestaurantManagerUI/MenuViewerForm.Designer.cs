@@ -98,6 +98,7 @@
             this.updateMenuItemButton.TabIndex = 8;
             this.updateMenuItemButton.Text = "Update Selected";
             this.updateMenuItemButton.UseVisualStyleBackColor = true;
+            this.updateMenuItemButton.Click += new System.EventHandler(this.updateMenuItemButton_Click);
             // 
             // addMenuItemButton
             // 
