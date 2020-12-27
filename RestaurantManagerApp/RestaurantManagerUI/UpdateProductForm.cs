@@ -41,9 +41,9 @@ namespace RestaurantManagerUI
             {
                 ProductModel newProduct = new ProductModel(productNameValue.Text, portionCountValue.Text, unitValue.Text, portionSizeValue.Text);
 
-                GlobalConfig.Connection.UpdateProduct(product.Id, newProduct);
+                newProduct = GlobalConfig.Connection.UpdateProduct(product.Id, newProduct);
 
-                callingFrom.CompleteProductUpdate();
+                callingFrom.CompleteProductUpdate(newProduct);
 
                 this.Close();
             }
