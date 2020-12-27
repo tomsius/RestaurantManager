@@ -49,10 +49,12 @@
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="OrderLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\RestaurantModel.cs" />
     <Compile Include="Models\StockModel.cs" />
     <Compile Include="Connections\TextFileConnector.cs" />
+    <Compile Include="StockLogic.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

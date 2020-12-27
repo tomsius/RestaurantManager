@@ -62,6 +62,7 @@
             this.createOrderButton.TabIndex = 25;
             this.createOrderButton.Text = "Create Order";
             this.createOrderButton.UseVisualStyleBackColor = true;
+            this.createOrderButton.Click += new System.EventHandler(this.createOrderButton_Click);
             // 
             // removeMenuItemButton
             // 

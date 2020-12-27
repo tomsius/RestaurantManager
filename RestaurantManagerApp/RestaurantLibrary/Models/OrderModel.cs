@@ -22,5 +22,11 @@ namespace RestaurantLibrary.Models
         /// Represents items ordered from the menu
         /// </summary>
         public List<MenuItemModel> OrderedItems { get; set; } = new List<MenuItemModel>();
+
+        public OrderModel(DateTime date, List<MenuItemModel> orderedItems)
+        {
+            Date = date;
+            OrderedItems = orderedItems;
+        }
     }
 }

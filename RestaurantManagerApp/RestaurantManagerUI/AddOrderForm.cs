@@ -17,9 +17,13 @@ namespace RestaurantManagerUI
         private List<MenuItemModel> availableMenuItems = GlobalConfig.Connection.GetAllMenuItems();
         private List<MenuItemModel> selectedMenuItems = new List<MenuItemModel>();
 
-        public AddOrderForm()
+        private IOrderRequester callingForm;
+
+        public AddOrderForm(IOrderRequester caller)
         {
             InitializeComponent();
+
+            callingForm = caller;
 
             WireUpLists();
         }
@@ -59,6 +63,35 @@ namespace RestaurantManagerUI
 
                 WireUpLists();
             }
+        }
+
+        private void createOrderButton_Click(object sender, EventArgs e)
+        {
+            if (AreFormInputsValid())
+            {
+                OrderModel order = new OrderModel(DateTime.Today, selectedMenuItems);
+                OrderLogic.ReduceProductsInStock(selectedMenuItems);
+
+                order = GlobalConfig.Connection.CreateOrder(order);
+
+                callingForm.CompleteOrderCreation(order);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Not enough products in stock.");
+            }
+        }
+
+        private bool AreFormInputsValid()
+        {
+            if (OrderLogic.AreOrderedMenuItemsProductsInStock(selectedMenuItems))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
