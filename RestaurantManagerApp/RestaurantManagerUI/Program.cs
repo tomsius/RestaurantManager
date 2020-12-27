@@ -20,10 +20,7 @@ namespace RestaurantManagerUI
             // Initialize connections
             RestaurantLibrary.GlobalConfig.InitializeConnections();
 
-            //Application.Run(new RestaurantManagerForm());
-
-            // TODO - Remove after done testing
-            Application.Run(new AddProductForm());
+            Application.Run(new RestaurantManagerForm());
         }
     }
 }
