@@ -1,4 +1,5 @@
 ﻿using RestaurantLibrary;
+using RestaurantLibrary.Logic;
 using RestaurantLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -35,36 +36,11 @@ namespace RestaurantManagerUI
         {
             menuItemNameValue.Text = menuItem.Name;
 
-            availableIngredients = GetAvailableIngredients();
+            availableIngredients = MenuItemLogic.GetNotUsedIngredients(menuItem);
 
             selectedIngredients = menuItem.Ingredients;
 
             WireUpLists();
-        }
-
-        private List<ProductModel> GetAvailableIngredients()
-        {
-            List<ProductModel> output = new List<ProductModel>();
-
-            foreach (ProductModel product in allIngredients)
-            {
-                bool contains = false;
-                foreach (ProductModel ingredient in menuItem.Ingredients)
-                {
-                    if (product.Id == ingredient.Id)
-                    {
-                        contains = true;
-                        break;
-                    }
-                }
-
-                if (!contains)
-                {
-                    output.Add(product);
-                }
-            }
-
-            return output;
         }
 
         private void WireUpLists()
