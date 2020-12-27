@@ -61,6 +61,13 @@ namespace RestaurantLibrary.Connections
             return products;
         }
 
+        public List<MenuItemModel> GetAllMenuItems()
+        {
+            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+
+            return menuItems;
+        }
+
         public MenuItemModel CreateMenuItem(MenuItemModel menuItem)
         {
             List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
