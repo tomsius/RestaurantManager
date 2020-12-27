@@ -50,12 +50,12 @@
             // menuItemsListBox
             // 
             this.menuItemsListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.menuItemsListBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuItemsListBox.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuItemsListBox.FormattingEnabled = true;
-            this.menuItemsListBox.ItemHeight = 30;
+            this.menuItemsListBox.ItemHeight = 24;
             this.menuItemsListBox.Location = new System.Drawing.Point(33, 163);
             this.menuItemsListBox.Name = "menuItemsListBox";
-            this.menuItemsListBox.Size = new System.Drawing.Size(586, 182);
+            this.menuItemsListBox.Size = new System.Drawing.Size(586, 170);
             this.menuItemsListBox.TabIndex = 5;
             // 
             // headerLabel
@@ -113,6 +113,7 @@
             this.addMenuItemButton.TabIndex = 7;
             this.addMenuItemButton.Text = "Add New Menu Item";
             this.addMenuItemButton.UseVisualStyleBackColor = true;
+            this.addMenuItemButton.Click += new System.EventHandler(this.addMenuItemButton_Click);
             // 
             // MenuViewerForm
             // 
