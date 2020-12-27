@@ -9,20 +9,23 @@ namespace RestaurantLibrary.Models
     public class OrderModel
     {
         /// <summary>
-        /// Represents unique identifier of order
+        /// Represents unique identifier of order.
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// Represents the date when order was created
+        /// Represents the date when order was created.
         /// </summary>
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// Represents items ordered from the menu
+        /// Represents items ordered from the menu.
         /// </summary>
         public List<MenuItemModel> OrderedItems { get; set; } = new List<MenuItemModel>();
 
+        /// <summary>
+        /// Represents OrderModel object.
+        /// </summary>
         public string DisplayName
         {
             get
@@ -39,6 +42,11 @@ namespace RestaurantLibrary.Models
             }
         }
 
+        /// <summary>
+        /// Creates object with initialized values.
+        /// </summary>
+        /// <param name="date">Order's date.</param>
+        /// <param name="orderedItems">Ordered menu items.</param>
         public OrderModel(DateTime date, List<MenuItemModel> orderedItems)
         {
             Date = date;

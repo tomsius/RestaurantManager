@@ -5,20 +5,23 @@ namespace RestaurantLibrary.Models
     public class MenuItemModel
     {
         /// <summary>
-        /// Represents unique identifier of menu item
+        /// Represents unique identifier of menu item.
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// Represents the name of the menu item
+        /// Represents the name of the menu item.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Represents the products required for the menu item
+        /// Represents the products required for the menu item.
         /// </summary>
         public List<ProductModel> Ingredients { get; set; } = new List<ProductModel>();
 
+        /// <summary>
+        /// Represents MenuItemModel object.
+        /// </summary>
         public string DisplayName
         {
             get
@@ -35,6 +38,11 @@ namespace RestaurantLibrary.Models
             }
         }
 
+        /// <summary>
+        /// Creates object with initialized values.
+        /// </summary>
+        /// <param name="name">Menu item's name.</param>
+        /// <param name="ingredients">Menu item's ingredients.</param>
         public MenuItemModel(string name, List<ProductModel> ingredients)
         {
             Name = name;

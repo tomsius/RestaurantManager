@@ -9,15 +9,18 @@ namespace RestaurantLibrary
 {
     public static class OrderLogic
     {
+        /// <summary>
+        /// Check if all ordered menu items' ingredients are in stock.
+        /// </summary>
+        /// <param name="orderedMenuItems">Ordered menu items of order.</param>
+        /// <returns></returns>
         public static bool AreOrderedMenuItemsProductsInStock(List<MenuItemModel> orderedMenuItems)
         {
-            List<ProductModel> productsInStock = GlobalConfig.Connection.GetAllProducts();
-
             foreach (MenuItemModel menuItem in orderedMenuItems)
             {
                 foreach (ProductModel product in menuItem.Ingredients)
                 {
-                    if (StockLogic.IsProductInStock(productsInStock, product.Id))
+                    if (StockLogic.IsProductInStock(product.Id))
                     {
                         continue;
                     }
@@ -31,6 +34,10 @@ namespace RestaurantLibrary
             return true;
         }
 
+        /// <summary>
+        /// Goes through all of the order item's ingredients and reduces them by 1 in stock.
+        /// </summary>
+        /// <param name="orderedMenuItems">Ordered menu items of order.</param>
         public static void ReduceProductsInStock(List<MenuItemModel> orderedMenuItems)
         {
             List<ProductModel> productsInStock = GlobalConfig.Connection.GetAllProducts();
