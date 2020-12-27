@@ -31,7 +31,7 @@ namespace RestaurantLibrary.Models
 
                 ingredients = ingredients.Substring(0, ingredients.Length - 1);
 
-                return string.Format("{0,-4}{1,-16}{2,-16}", Id.ToString(), Name, ingredients);
+                return string.Format("{0,-4}{1,-25}{2,-16}", Id.ToString(), Name, ingredients);
             }
         }
 
