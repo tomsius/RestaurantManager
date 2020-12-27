@@ -119,7 +119,25 @@ namespace RestaurantLibrary.Connections
 
         public MenuItemModel UpdateMenuItem(int id, MenuItemModel newMenuItem)
         {
-            throw new NotImplementedException();
+            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+
+            foreach (MenuItemModel menuItem in menuItems)
+            {
+                if (id == menuItem.Id)
+                {
+                    UpdateMenuItemtWith(menuItem, newMenuItem);
+                    TextFileProcessor.SaveToMenuItemsFile(menuItems, MenuItemsFile);
+                    return menuItem;
+                }
+            }
+
+            return null;
+        }
+
+        private void UpdateMenuItemtWith(MenuItemModel menuItem, MenuItemModel newMenuItem)
+        {
+            menuItem.Name = newMenuItem.Name;
+            menuItem.Ingredients = newMenuItem.Ingredients;
         }
 
         public void RemoveProduct(int id)
@@ -140,7 +158,18 @@ namespace RestaurantLibrary.Connections
 
         public void RemoveMenuItem(int id)
         {
-            throw new NotImplementedException();
+            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+            List<MenuItemModel> newMenuItemList = new List<MenuItemModel>();
+
+            foreach (MenuItemModel menuItem in menuItems)
+            {
+                if (menuItem.Id != id)
+                {
+                    newMenuItemList.Add(menuItem);
+                }
+            }
+
+            TextFileProcessor.SaveToMenuItemsFile(newMenuItemList, MenuItemsFile);
         }
     }
 }
