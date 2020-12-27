@@ -17,22 +17,15 @@ namespace RestaurantManagerUI
         private List<ProductModel> availableIngredients = GlobalConfig.Connection.GetAllProducts();
         private List<ProductModel> selectedIngredients = new List<ProductModel>();
 
-        public AddMenuItemForm()
+        private IMenuItemRequester callingForm;
+
+        public AddMenuItemForm(IMenuItemRequester caller)
         {
             InitializeComponent();
 
-            //CreateSampleData();
+            callingForm = caller;
+
             WireUpLists();
-        }
-
-        // TODO - Delete test code
-        private void CreateSampleData()
-        {
-            availableIngredients.Add(new ProductModel { Name = "Potatoes"});
-            availableIngredients.Add(new ProductModel { Name = "Tomatoes" });
-
-            selectedIngredients.Add(new ProductModel { Name = "Cabbage" });
-            selectedIngredients.Add(new ProductModel { Name = "Coca-Cola" });
         }
 
         private void WireUpLists()
@@ -78,9 +71,15 @@ namespace RestaurantManagerUI
             {
                 MenuItemModel menuItem = new MenuItemModel(menuItemNameValue.Text, selectedIngredients);
 
-                GlobalConfig.Connection.CreateMenuItem(menuItem);
+                menuItem = GlobalConfig.Connection.CreateMenuItem(menuItem);
 
-                // TODO - if we are not closing this form after creation, reset fields
+                callingForm.CompleteMenuItemCreation(menuItem);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Form.");
             }
         }
 
