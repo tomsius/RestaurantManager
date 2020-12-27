@@ -115,6 +115,7 @@
             this.removeProductButton.TabIndex = 6;
             this.removeProductButton.Text = "Remove Selected";
             this.removeProductButton.UseVisualStyleBackColor = true;
+            this.removeProductButton.Click += new System.EventHandler(this.removeProductButton_Click);
             // 
             // StockViewerForm
             // 
