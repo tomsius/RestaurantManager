@@ -54,6 +54,7 @@
             this.updateProductButton.TabIndex = 22;
             this.updateProductButton.Text = "Update Product";
             this.updateProductButton.UseVisualStyleBackColor = true;
+            this.updateProductButton.Click += new System.EventHandler(this.updateProductButton_Click);
             // 
             // portionSizeValue
             // 

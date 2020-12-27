@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,28 @@ namespace RestaurantManagerUI
 {
     public partial class UpdateProductForm : Form
     {
-        public UpdateProductForm()
+        private ProductModel product;
+
+        public UpdateProductForm(ProductModel product)
         {
             InitializeComponent();
+
+            this.product = product;
+
+            InitializeFormFields();
+        }
+
+        private void InitializeFormFields()
+        {
+            productNameValue.Text = product.Name;
+            portionCountValue.Text = product.PortionCount.ToString();
+            unitValue.Text = product.Unit;
+            portionSizeValue.Text = product.PortionSize.ToString();
+        }
+
+        private void updateProductButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
