@@ -202,5 +202,12 @@ namespace RestaurantLibrary.Connections
         {
             TextFileProcessor.SaveToProductsFile(products, ProductsFile);
         }
+
+        public List<OrderModel> GetAllOrders()
+        {
+            List<OrderModel> orders = TextFileProcessor.GetOrderRowsFrom(OrdersFile, MenuItemsFile, ProductsFile);
+
+            return orders;
+        }
     }
 }
