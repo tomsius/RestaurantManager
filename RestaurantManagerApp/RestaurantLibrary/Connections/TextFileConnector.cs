@@ -85,12 +85,34 @@ namespace RestaurantLibrary.Connections
             return menuItems.OrderByDescending(menuItem => menuItem.Id).First().Id + 1;
         }
 
-        public ProductModel UpdateProduct(int id, ProductModel product)
+        public ProductModel UpdateProduct(int id, ProductModel newProduct)
         {
-            throw new NotImplementedException();
+            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
+            ProductModel updatedProduct = new ProductModel();
+
+            foreach (ProductModel product in products)
+            {
+                if (id == product.Id)
+                {
+                    UpdateProductWith(product, newProduct);
+                    break;
+                }
+            }
+
+            TextFileProcessor.SaveToProductsFile(products, ProductsFile);
+
+            return updatedProduct;
         }
 
-        public MenuItemModel UpdateMenuItem(int id, MenuItemModel menuItem)
+        private void UpdateProductWith(ProductModel product, ProductModel newProduct)
+        {
+            product.Name = newProduct.Name;
+            product.PortionCount = newProduct.PortionCount;
+            product.Unit = newProduct.Unit;
+            product.PortionSize = newProduct.PortionSize;
+        }
+
+        public MenuItemModel UpdateMenuItem(int id, MenuItemModel newMenuItem)
         {
             throw new NotImplementedException();
         }
