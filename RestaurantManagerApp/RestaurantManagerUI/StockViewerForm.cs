@@ -42,5 +42,13 @@ namespace RestaurantManagerUI
 
             WireUpLists();
         }
+
+        private void updateProductButton_Click(object sender, EventArgs e)
+        {
+            ProductModel product = (ProductModel)productsListBox.SelectedItem;
+
+            UpdateProductForm form = new UpdateProductForm(product);
+            form.Show();
+        }
     }
 }
