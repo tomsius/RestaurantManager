@@ -1,7 +1,9 @@
-﻿namespace RestaurantManagerUI
+﻿using RestaurantLibrary.Models;
+
+namespace RestaurantManagerUI
 {
     public interface IProductChanger
     {
-        void CompleteProductUpdate();
+        void CompleteProductUpdate(ProductModel newProduct);
     }
 }
