@@ -172,5 +172,85 @@ namespace RestaurantLibrary.Connections
 
             return output;
         }
+
+        public static List<OrderModel> GetOrderRowsFrom(string orderFileName, string menuItemFile, string productFile)
+        {
+            string fullFilePath = GetFullFilePath(orderFileName);
+            List<string> dataRows = LoadFile(fullFilePath);
+            List<OrderModel> orderList = ConvertToOrderList(dataRows, menuItemFile, productFile);
+
+            return orderList;
+        }
+
+        private static List<OrderModel> ConvertToOrderList(List<string> dataRows, string menuItemFile, string productFile)
+        {
+            List<OrderModel> orderList = new List<OrderModel>();
+
+            foreach (string row in dataRows)
+            {
+                string[] columns = row.Split(';');
+
+                string date = columns[1];
+                string[] menuItemsIds = columns[2].Split(' ');
+
+                List<MenuItemModel> menuItem = GetMenuItemsByIds(menuItemsIds, menuItemFile, productFile);
+
+                OrderModel order = new OrderModel(DateTime.Parse(date), menuItem);
+                order.Id = int.Parse(columns[0]);
+
+                orderList.Add(order);
+            }
+
+            return orderList;
+        }
+
+        private static List<MenuItemModel> GetMenuItemsByIds(string[] menuItemsIds, string menuItemFile, string productFile)
+        {
+            List<MenuItemModel> output = new List<MenuItemModel>();
+            List<MenuItemModel> menuItems = GetMenuItemsRowsFrom(menuItemFile, productFile);
+
+            foreach (string id in menuItemsIds)
+            {
+                output.Add(menuItems.Where(menuItem => menuItem.Id == int.Parse(id)).First());
+            }
+
+            return output;
+        }
+
+        public static void SaveToOrdersFile(List<OrderModel> orders, string fileName)
+        {
+            List<string> rows = new List<string>();
+
+            foreach (OrderModel order in orders)
+            {
+                rows.Add(ConvertOrderToString(order));
+            }
+
+            File.WriteAllLines(GetFullFilePath(fileName), rows);
+        }
+
+        private static string ConvertOrderToString(OrderModel order)
+        {
+           return order.Id + ";" + order.Date + ";" + ConvertMenuItemIdsToString(order.OrderedItems);
+        }
+
+        private static string ConvertMenuItemIdsToString(List<MenuItemModel> orderedItems)
+        {
+            string output = string.Empty;
+
+            if (orderedItems.Count == 0)
+            {
+                return output;
+            }
+
+            foreach (MenuItemModel menuItem in orderedItems)
+            {
+                output += menuItem.Id + " ";
+            }
+
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
+        }
     }
 }
