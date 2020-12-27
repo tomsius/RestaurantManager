@@ -69,7 +69,7 @@ namespace RestaurantManagerUI
         {
             if (AreFormInputsValid())
             {
-                OrderModel order = new OrderModel(DateTime.Today, selectedMenuItems);
+                OrderModel order = new OrderModel(DateTime.Now, selectedMenuItems);
                 OrderLogic.ReduceProductsInStock(selectedMenuItems);
 
                 order = GlobalConfig.Connection.CreateOrder(order);
