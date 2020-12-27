@@ -10,29 +10,20 @@ namespace RestaurantLibrary.Connections
     public class TextFileConnector : IConnection
     {
         /// <summary>
-        /// Represents file name for ProductModel rows.
-        /// </summary>
-        private const string ProductsFile = "Products.csv";
-
-        private const string MenuItemsFile = "MenuItems.csv";
-
-        private const string OrdersFile = "Orders.csv";
-
-        /// <summary>
         /// Adds row to file
         /// </summary>
         /// <param name="product">The product information.</param>
         /// <returns>The product information with unique identifier.</returns>
         public void CreateProduct(ProductModel product)
         {
-            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
+            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom();
 
             int newId = FindNewAvailableProductId(products);
             product.Id = newId;
 
             products.Add(product);
 
-            TextFileProcessor.SaveToProductsFile(products, ProductsFile);
+            TextFileProcessor.SaveToProductsFile(products);
         }
 
         /// <summary>
@@ -56,28 +47,28 @@ namespace RestaurantLibrary.Connections
         /// <returns>Returns products from file.</returns>
         public List<ProductModel> GetAllProducts()
         {
-            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
+            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom();
 
             return products;
         }
 
         public List<MenuItemModel> GetAllMenuItems()
         {
-            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom();
 
             return menuItems;
         }
 
         public void CreateMenuItem(MenuItemModel menuItem)
         {
-            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom();
 
             int newId = FindNewAvailableMenuItemId(menuItems);
             menuItem.Id = newId;
 
             menuItems.Add(menuItem);
 
-            TextFileProcessor.SaveToMenuItemsFile(menuItems, MenuItemsFile);
+            TextFileProcessor.SaveToMenuItemsFile(menuItems);
         }
 
         private int FindNewAvailableMenuItemId(List<MenuItemModel> menuItems)
@@ -92,14 +83,14 @@ namespace RestaurantLibrary.Connections
 
         public void UpdateProduct(int id, ProductModel newProduct)
         {
-            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
+            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom();
 
             foreach (ProductModel product in products)
             {
                 if (id == product.Id)
                 {
                     UpdateProductWith(product, newProduct);
-                    TextFileProcessor.SaveToProductsFile(products, ProductsFile);
+                    TextFileProcessor.SaveToProductsFile(products);
                 }
             }
         }
@@ -114,14 +105,14 @@ namespace RestaurantLibrary.Connections
 
         public void UpdateMenuItem(int id, MenuItemModel newMenuItem)
         {
-            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom();
 
             foreach (MenuItemModel menuItem in menuItems)
             {
                 if (id == menuItem.Id)
                 {
                     UpdateMenuItemtWith(menuItem, newMenuItem);
-                    TextFileProcessor.SaveToMenuItemsFile(menuItems, MenuItemsFile);
+                    TextFileProcessor.SaveToMenuItemsFile(menuItems);
                 }
             }
         }
@@ -134,7 +125,7 @@ namespace RestaurantLibrary.Connections
 
         public void DeleteProduct(int id)
         {
-            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
+            List<ProductModel> products = TextFileProcessor.GetProductRowsFrom();
             List<ProductModel> newProductList = new List<ProductModel>();
 
             foreach (ProductModel product in products)
@@ -145,12 +136,12 @@ namespace RestaurantLibrary.Connections
                 }
             }
 
-            TextFileProcessor.SaveToProductsFile(newProductList, ProductsFile);
+            TextFileProcessor.SaveToProductsFile(newProductList);
         }
 
         public void DeleteMenuItem(int id)
         {
-            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom(MenuItemsFile, ProductsFile);
+            List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemsRowsFrom();
             List<MenuItemModel> newMenuItemList = new List<MenuItemModel>();
 
             foreach (MenuItemModel menuItem in menuItems)
@@ -161,19 +152,19 @@ namespace RestaurantLibrary.Connections
                 }
             }
 
-            TextFileProcessor.SaveToMenuItemsFile(newMenuItemList, MenuItemsFile);
+            TextFileProcessor.SaveToMenuItemsFile(newMenuItemList);
         }
 
         public void CreateOrder(OrderModel order)
         {
-            List<OrderModel> orders = TextFileProcessor.GetOrderRowsFrom(OrdersFile, MenuItemsFile, ProductsFile);
+            List<OrderModel> orders = TextFileProcessor.GetOrderRowsFrom();
 
             int newId = FindNewAvailableOrderId(orders);
             order.Id = newId;
 
             orders.Add(order);
 
-            TextFileProcessor.SaveToOrdersFile(orders, OrdersFile);
+            TextFileProcessor.SaveToOrdersFile(orders);
         }
 
         private int FindNewAvailableOrderId(List<OrderModel> orders)
@@ -188,12 +179,12 @@ namespace RestaurantLibrary.Connections
 
         public void UpdateProductStock(List<ProductModel> products)
         {
-            TextFileProcessor.SaveToProductsFile(products, ProductsFile);
+            TextFileProcessor.SaveToProductsFile(products);
         }
 
         public List<OrderModel> GetAllOrders()
         {
-            List<OrderModel> orders = TextFileProcessor.GetOrderRowsFrom(OrdersFile, MenuItemsFile, ProductsFile);
+            List<OrderModel> orders = TextFileProcessor.GetOrderRowsFrom();
 
             return orders;
         }

@@ -14,9 +14,9 @@ namespace RestaurantLibrary.Connections
         /// </summary>
         /// <param name="fileName">File to read.</param>
         /// <returns>Return stored products in file.</returns>
-        public static List<ProductModel> GetProductRowsFrom(string fileName)
+        public static List<ProductModel> GetProductRowsFrom()
         {
-            string fullFilePath = GetFullFilePath(fileName);
+            string fullFilePath = GetFullFilePath(GlobalConfig.ProductsFile);
             List<string> dataRows = LoadFile(fullFilePath);
             List<ProductModel> productList = ConvertToProductList(dataRows);
 
@@ -76,7 +76,7 @@ namespace RestaurantLibrary.Connections
             return productList;
         }
 
-        public static void SaveToProductsFile(List<ProductModel> products, string fileName)
+        public static void SaveToProductsFile(List<ProductModel> products)
         {
             List<string> rows = new List<string>();
 
@@ -85,7 +85,7 @@ namespace RestaurantLibrary.Connections
                 rows.Add(ConvertProductToString(product));
             }
 
-            File.WriteAllLines(GetFullFilePath(fileName), rows);
+            File.WriteAllLines(GetFullFilePath(GlobalConfig.ProductsFile), rows);
         }
 
         private static string ConvertProductToString(ProductModel product)
@@ -93,16 +93,16 @@ namespace RestaurantLibrary.Connections
             return product.Id + ";" + product.Name + ";" + product.PortionCount + ";" + product.Unit + ";" + product.PortionSize;
         }
 
-        public static List<MenuItemModel> GetMenuItemsRowsFrom(string menuItemsFileName, string productsFileName)
+        public static List<MenuItemModel> GetMenuItemsRowsFrom()
         {
-            string fullFilePath = GetFullFilePath(menuItemsFileName);
+            string fullFilePath = GetFullFilePath(GlobalConfig.MenuItemsFile);
             List<string> dataRows = LoadFile(fullFilePath);
-            List<MenuItemModel> menuItemList = ConvertToMenuItemList(dataRows, productsFileName);
+            List<MenuItemModel> menuItemList = ConvertToMenuItemList(dataRows);
 
             return menuItemList;
         }
 
-        private static List<MenuItemModel> ConvertToMenuItemList(List<string> dataRows, string productsFileName)
+        private static List<MenuItemModel> ConvertToMenuItemList(List<string> dataRows)
         {
             List<MenuItemModel> menuItemList = new List<MenuItemModel>();
 
@@ -113,7 +113,7 @@ namespace RestaurantLibrary.Connections
                 string name = columns[1];
                 string[] ingredientsIds = columns[2].Split(' ');
 
-                List<ProductModel> ingredients = GetIngredientsByIds(ingredientsIds, productsFileName);
+                List<ProductModel> ingredients = GetIngredientsByIds(ingredientsIds);
 
                 MenuItemModel menuItem = new MenuItemModel(name, ingredients);
                 menuItem.Id = int.Parse(columns[0]);
@@ -124,10 +124,10 @@ namespace RestaurantLibrary.Connections
             return menuItemList;
         }
 
-        private static List<ProductModel> GetIngredientsByIds(string[] ingredientsIds, string productsFileName)
+        private static List<ProductModel> GetIngredientsByIds(string[] ingredientsIds)
         {
             List<ProductModel> ingredients = new List<ProductModel>();
-            List<ProductModel> products = GetProductRowsFrom(productsFileName);
+            List<ProductModel> products = GetProductRowsFrom();
 
             foreach (string id in ingredientsIds)
             {
@@ -137,7 +137,7 @@ namespace RestaurantLibrary.Connections
             return ingredients;
         }
 
-        public static void SaveToMenuItemsFile(List<MenuItemModel> menuItems, string fileName)
+        public static void SaveToMenuItemsFile(List<MenuItemModel> menuItems)
         {
             List<string> rows = new List<string>();
 
@@ -146,7 +146,7 @@ namespace RestaurantLibrary.Connections
                 rows.Add(ConvertMenuItemToString(menuItem));
             }
 
-            File.WriteAllLines(GetFullFilePath(fileName), rows);
+            File.WriteAllLines(GetFullFilePath(GlobalConfig.MenuItemsFile), rows);
         }
 
         private static string ConvertMenuItemToString(MenuItemModel menuItem)
@@ -173,16 +173,16 @@ namespace RestaurantLibrary.Connections
             return output;
         }
 
-        public static List<OrderModel> GetOrderRowsFrom(string orderFileName, string menuItemFile, string productFile)
+        public static List<OrderModel> GetOrderRowsFrom()
         {
-            string fullFilePath = GetFullFilePath(orderFileName);
+            string fullFilePath = GetFullFilePath(GlobalConfig.OrdersFile);
             List<string> dataRows = LoadFile(fullFilePath);
-            List<OrderModel> orderList = ConvertToOrderList(dataRows, menuItemFile, productFile);
+            List<OrderModel> orderList = ConvertToOrderList(dataRows);
 
             return orderList;
         }
 
-        private static List<OrderModel> ConvertToOrderList(List<string> dataRows, string menuItemFile, string productFile)
+        private static List<OrderModel> ConvertToOrderList(List<string> dataRows)
         {
             List<OrderModel> orderList = new List<OrderModel>();
 
@@ -193,7 +193,7 @@ namespace RestaurantLibrary.Connections
                 string date = columns[1];
                 string[] menuItemsIds = columns[2].Split(' ');
 
-                List<MenuItemModel> menuItem = GetMenuItemsByIds(menuItemsIds, menuItemFile, productFile);
+                List<MenuItemModel> menuItem = GetMenuItemsByIds(menuItemsIds);
 
                 OrderModel order = new OrderModel(DateTime.Parse(date), menuItem);
                 order.Id = int.Parse(columns[0]);
@@ -204,10 +204,10 @@ namespace RestaurantLibrary.Connections
             return orderList;
         }
 
-        private static List<MenuItemModel> GetMenuItemsByIds(string[] menuItemsIds, string menuItemFile, string productFile)
+        private static List<MenuItemModel> GetMenuItemsByIds(string[] menuItemsIds)
         {
             List<MenuItemModel> output = new List<MenuItemModel>();
-            List<MenuItemModel> menuItems = GetMenuItemsRowsFrom(menuItemFile, productFile);
+            List<MenuItemModel> menuItems = GetMenuItemsRowsFrom();
 
             foreach (string id in menuItemsIds)
             {
@@ -217,7 +217,7 @@ namespace RestaurantLibrary.Connections
             return output;
         }
 
-        public static void SaveToOrdersFile(List<OrderModel> orders, string fileName)
+        public static void SaveToOrdersFile(List<OrderModel> orders)
         {
             List<string> rows = new List<string>();
 
@@ -226,7 +226,7 @@ namespace RestaurantLibrary.Connections
                 rows.Add(ConvertOrderToString(order));
             }
 
-            File.WriteAllLines(GetFullFilePath(fileName), rows);
+            File.WriteAllLines(GetFullFilePath(GlobalConfig.OrdersFile), rows);
         }
 
         private static string ConvertOrderToString(OrderModel order)
