@@ -36,6 +36,14 @@ namespace RestaurantManagerUI
             form.Show();
         }
 
+        private void updateMenuItemButton_Click(object sender, EventArgs e)
+        {
+            MenuItemModel menuItem = (MenuItemModel)menuItemsListBox.SelectedItem;
+
+            UpdateMenuItemForm form = new UpdateMenuItemForm(this, menuItem);
+            form.Show();
+        }
+
         public void CompleteMenuItemCreation(MenuItemModel menuItem)
         {
             menuItems.Add(menuItem);
@@ -45,7 +53,27 @@ namespace RestaurantManagerUI
 
         public void CompleteMenuItemUpdate(MenuItemModel newMenuItem)
         {
-            throw new NotImplementedException();
+            foreach (MenuItemModel menuItem in menuItems)
+            {
+                if (newMenuItem.Id == menuItem.Id)
+                {
+                    menuItem.Name = newMenuItem.Name;
+                    menuItem.Ingredients = newMenuItem.Ingredients;
+                }
+            }
+
+            WireUpLists();
+        }
+
+        private void removeMenuItemButton_Click(object sender, EventArgs e)
+        {
+            MenuItemModel menuItem = (MenuItemModel)menuItemsListBox.SelectedItem;
+
+            GlobalConfig.Connection.RemoveMenuItem(menuItem.Id);
+
+            menuItems.Remove(menuItem);
+
+            WireUpLists();
         }
     }
 }

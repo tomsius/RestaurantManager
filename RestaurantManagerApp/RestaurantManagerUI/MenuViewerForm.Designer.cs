@@ -83,6 +83,7 @@
             this.removeMenuItemButton.TabIndex = 9;
             this.removeMenuItemButton.Text = "Remove Selected";
             this.removeMenuItemButton.UseVisualStyleBackColor = true;
+            this.removeMenuItemButton.Click += new System.EventHandler(this.removeMenuItemButton_Click);
             // 
             // updateMenuItemButton
             // 
