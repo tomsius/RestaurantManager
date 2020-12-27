@@ -16,6 +16,8 @@ namespace RestaurantLibrary.Connections
 
         private const string MenuItemsFile = "MenuItems.csv";
 
+        private const string OrdersFile = "Orders.csv";
+
         /// <summary>
         /// Adds row to file
         /// </summary>
@@ -170,6 +172,35 @@ namespace RestaurantLibrary.Connections
             }
 
             TextFileProcessor.SaveToMenuItemsFile(newMenuItemList, MenuItemsFile);
+        }
+
+        public OrderModel CreateOrder(OrderModel order)
+        {
+            List<OrderModel> orders = TextFileProcessor.GetOrderRowsFrom(OrdersFile, MenuItemsFile, ProductsFile);
+
+            int newId = FindNewAvailableOrderId(orders);
+            order.Id = newId;
+
+            orders.Add(order);
+
+            TextFileProcessor.SaveToOrdersFile(orders, OrdersFile);
+
+            return order;
+        }
+
+        private int FindNewAvailableOrderId(List<OrderModel> orders)
+        {
+            if (orders.Count == 0)
+            {
+                return 1;
+            }
+
+            return orders.OrderByDescending(order => order.Id).First().Id + 1;
+        }
+
+        public void UpdateProductStock(List<ProductModel> products)
+        {
+            TextFileProcessor.SaveToProductsFile(products, ProductsFile);
         }
     }
 }
