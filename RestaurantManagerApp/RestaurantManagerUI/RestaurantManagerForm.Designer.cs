@@ -44,7 +44,6 @@
             this.headerLabel.Size = new System.Drawing.Size(335, 50);
             this.headerLabel.TabIndex = 0;
             this.headerLabel.Text = "Restaurant Manager";
-            this.headerLabel.Click += new System.EventHandler(this.headerLabel_Click);
             // 
             // manageStockButton
             // 
@@ -108,7 +107,6 @@
             this.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.Name = "RestaurantManagerForm";
             this.Text = "Restaurant Manager";
-            this.Load += new System.EventHandler(this.RestaurantManagerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

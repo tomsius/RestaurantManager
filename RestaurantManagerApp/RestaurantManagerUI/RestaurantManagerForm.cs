@@ -17,29 +17,22 @@ namespace RestaurantManagerUI
             InitializeComponent();
         }
 
-        private void RestaurantManagerForm_Load(object sender, EventArgs e)
+        private void manageStockButton_Click(object sender, EventArgs e)
         {
-
+            StockViewerForm form = new StockViewerForm();
+            form.Show();
         }
 
         private void manageMenuButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void manageStockButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void headerLabel_Click(object sender, EventArgs e)
-        {
-
+            MenuViewerForm form = new MenuViewerForm();
+            form.Show();
         }
 
         private void manageOrdersButton_Click(object sender, EventArgs e)
         {
-
+            OrdersViewerForm form = new OrdersViewerForm();
+            form.Show();
         }
     }
 }
