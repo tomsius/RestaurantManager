@@ -27,7 +27,7 @@ namespace RestaurantManagerUI
         {
             productsListBox.DataSource = null;
             productsListBox.DataSource = stock;
-            productsListBox.DisplayMember = "Name";
+            productsListBox.DisplayMember = "DisplayName";
         }
 
         private void addProductButton_Click(object sender, EventArgs e)

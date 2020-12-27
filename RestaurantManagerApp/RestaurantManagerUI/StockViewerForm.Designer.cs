@@ -50,11 +50,12 @@
             // productsListBox
             // 
             this.productsListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.productsListBox.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productsListBox.FormattingEnabled = true;
-            this.productsListBox.ItemHeight = 30;
+            this.productsListBox.ItemHeight = 24;
             this.productsListBox.Location = new System.Drawing.Point(34, 162);
             this.productsListBox.Name = "productsListBox";
-            this.productsListBox.Size = new System.Drawing.Size(585, 182);
+            this.productsListBox.Size = new System.Drawing.Size(585, 170);
             this.productsListBox.TabIndex = 2;
             // 
             // productsLabel
