@@ -88,20 +88,18 @@ namespace RestaurantLibrary.Connections
         public ProductModel UpdateProduct(int id, ProductModel newProduct)
         {
             List<ProductModel> products = TextFileProcessor.GetProductRowsFrom(ProductsFile);
-            ProductModel updatedProduct = new ProductModel();
 
             foreach (ProductModel product in products)
             {
                 if (id == product.Id)
                 {
                     UpdateProductWith(product, newProduct);
-                    break;
+                    TextFileProcessor.SaveToProductsFile(products, ProductsFile);
+                    return product;
                 }
             }
 
-            TextFileProcessor.SaveToProductsFile(products, ProductsFile);
-
-            return updatedProduct;
+            return null;
         }
 
         private void UpdateProductWith(ProductModel product, ProductModel newProduct)
