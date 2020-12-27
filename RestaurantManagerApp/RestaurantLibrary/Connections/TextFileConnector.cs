@@ -84,5 +84,15 @@ namespace RestaurantLibrary.Connections
 
             return menuItems.OrderByDescending(menuItem => menuItem.Id).First().Id + 1;
         }
+
+        public ProductModel UpdateProduct(int id, ProductModel product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public MenuItemModel UpdateMenuItem(int id, MenuItemModel menuItem)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

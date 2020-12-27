@@ -38,9 +38,8 @@ namespace RestaurantManagerUI
             if (AreFormInputsValid())
             {
                 ProductModel newProduct = new ProductModel(productNameValue.Text, portionCountValue.Text, unitValue.Text, portionSizeValue.Text);
-                newProduct.Id = product.Id;
 
-                GlobalConfig.Connection.UpdateProduct(newProduct);
+                GlobalConfig.Connection.UpdateProduct(product.Id, newProduct);
 
                 this.Close();
             }

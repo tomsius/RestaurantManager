@@ -8,8 +8,8 @@ namespace RestaurantLibrary.Connections
         ProductModel CreateProduct(ProductModel product);
         MenuItemModel CreateMenuItem(MenuItemModel menuItem);
         List<ProductModel> GetAllProducts();
-        ProductModel UpdateProduct(ProductModel product);
-        MenuItemModel UpdateMenuItem(MenuItemModel menuItem);
+        ProductModel UpdateProduct(int id, ProductModel product);
+        MenuItemModel UpdateMenuItem(int id, MenuItemModel menuItem);
 
     }
 }
