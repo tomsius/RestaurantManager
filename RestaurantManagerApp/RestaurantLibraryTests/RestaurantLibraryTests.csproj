@@ -64,6 +64,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connections\TextFileConnectorTests.cs" />
     <Compile Include="Logic\MenuItemLogicTests.cs" />
     <Compile Include="Logic\OrderLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
