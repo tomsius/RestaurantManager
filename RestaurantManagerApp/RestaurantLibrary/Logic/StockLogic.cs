@@ -10,7 +10,7 @@ namespace RestaurantLibrary
     public static class StockLogic
     {
         /// <summary>
-        /// Checks if product is in stock.
+        /// Checks if product is in stock. Throws ArgumentException exception if product id is not in stock.
         /// </summary>
         /// <param name="id">Product's id which is being checked.</param>
         /// <returns>Retruns true if product is in stock. Returns false if product is not in stock.</returns>
@@ -18,19 +18,33 @@ namespace RestaurantLibrary
         {
             List<ProductModel> products = GlobalConfig.Connection.GetAllProducts();
 
-            bool isInStock = products.Where(p => p.Id == id).First().PortionCount - 1 >= 0;
+            try
+            {
+                bool isInStock = products.Where(p => p.Id == id).First().PortionCount - 1 >= 0;
 
-            return isInStock;
+                return isInStock;
+            }
+            catch (InvalidOperationException)
+            {
+                throw new ArgumentException("There is no product with id: " + id + ".");
+            }
         }
 
         /// <summary>
-        /// Reduces product's amount in stock by 1.
+        /// Reduces product's amount in stock by 1. Throws ArgumentException exception if product id is not in products parameter.
         /// </summary>
         /// <param name="products">Products in stock.</param>
         /// <param name="id">Product's id whose amount is being reduced.</param>
         public static void ReduceProductInStock(List<ProductModel> products, int id)
         {
-            products.Where(p => p.Id == id).First().PortionCount--;
+            try
+            {
+                products.Where(p => p.Id == id).First().PortionCount--;
+            }
+            catch (InvalidOperationException)
+            {
+                throw new ArgumentException("There is no product with id: " + id + ".");
+            }
         }
     }
 }
