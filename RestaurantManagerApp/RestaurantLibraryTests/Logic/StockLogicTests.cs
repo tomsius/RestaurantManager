@@ -41,7 +41,7 @@ namespace RestaurantLibraryTests
                     PortionCount = 10,
                     Unit = "bottles",
                     PortionSize = 1
-                },
+                }
             };
 
             return sampleProducts;
