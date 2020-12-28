@@ -10,13 +10,18 @@ namespace RestaurantLibrary.Connections
     public class TextFileConnector : IConnection
     {
         /// <summary>
-        /// Adds row to file
+        /// Saves product to file. Throws ArgumentException if given product is null.
         /// </summary>
         /// <param name="product">The product information.</param>
         /// <returns>The product information with unique identifier.</returns>
         public void CreateProduct(ProductModel product)
         {
             List<ProductModel> products = TextFileProcessor.GetProductRowsFrom();
+
+            if (product == null)
+            {
+                throw new ArgumentException("Given product can not be null.");
+            }
 
             int newId = FindNewAvailableProductId(products);
             product.Id = newId;
@@ -42,12 +47,17 @@ namespace RestaurantLibrary.Connections
         }
 
         /// <summary>
-        /// Saves menu item to file.
+        /// Saves menu item to file. Throws ArgumentException if given menu item is null.
         /// </summary>
         /// <param name="menuItem">Menu item which is being saved to file.</param>
         public void CreateMenuItem(MenuItemModel menuItem)
         {
             List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemRowsFrom();
+
+            if (menuItem == null)
+            {
+                throw new ArgumentException("Given menu item can not be null.");
+            }
 
             int newId = FindNewAvailableMenuItemId(menuItems);
             menuItem.Id = newId;
@@ -73,12 +83,17 @@ namespace RestaurantLibrary.Connections
         }
 
         /// <summary>
-        /// Saves order to file.
+        /// Saves order to file. Throws ArgumentException if given order is null.
         /// </summary>
         /// <param name="menuItem">Order which is being saved to file.</param>
         public void CreateOrder(OrderModel order)
         {
             List<OrderModel> orders = TextFileProcessor.GetOrderRowsFrom();
+
+            if (order == null)
+            {
+                throw new ArgumentException("Given order can not be null.");
+            }
 
             int newId = FindNewAvailableOrderId(orders);
             order.Id = newId;
@@ -137,13 +152,18 @@ namespace RestaurantLibrary.Connections
         }
 
         /// <summary>
-        /// Updates product in file with new values.
+        /// Updates product in file with new values. Throws ArgumentException if new product is null.
         /// </summary>
         /// <param name="id">Product's id which is being updated.</param>
         /// <param name="newProduct">New product values.</param>
         public void UpdateProduct(int id, ProductModel newProduct)
         {
             List<ProductModel> products = TextFileProcessor.GetProductRowsFrom();
+
+            if (newProduct == null)
+            {
+                throw new ArgumentException("Given new product can not be null.");
+            }
 
             foreach (ProductModel product in products)
             {
@@ -173,13 +193,18 @@ namespace RestaurantLibrary.Connections
         }
 
         /// <summary>
-        /// Updates menu item in file with new values.
+        /// Updates menu item in file with new values. Throws ArgumentException if new menu item is null.
         /// </summary>
         /// <param name="id">Menu item's id which is being updated.</param>
         /// <param name="newMenuItem">New menu item values.</param>
         public void UpdateMenuItem(int id, MenuItemModel newMenuItem)
         {
             List<MenuItemModel> menuItems = TextFileProcessor.GetMenuItemRowsFrom();
+
+            if (newMenuItem == null)
+            {
+                throw new ArgumentException("Given new menu item can not be null.");
+            }
 
             foreach (MenuItemModel menuItem in menuItems)
             {
