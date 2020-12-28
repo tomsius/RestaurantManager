@@ -10,12 +10,17 @@ namespace RestaurantLibrary.Logic
     public static class MenuItemLogic
     {
         /// <summary>
-        /// Gets ingredients which are in stock but not used in menu item.
+        /// Gets ingredients which are in stock but not used in menu item. Throws ArgumentException exception if parameter is null.
         /// </summary>
         /// <param name="menuItem">Menu item which is being checked.</param>
         /// <returns>Returns not used products in menu item.</returns>
         public static List<ProductModel> GetNotUsedIngredients(MenuItemModel menuItem)
         {
+            if (menuItem == null)
+            {
+                throw new ArgumentException("Menu item object can not be null.");
+            }
+
             List<ProductModel> allIngredients = GlobalConfig.Connection.GetAllProducts();
             List<ProductModel> notUsedIngredients = new List<ProductModel>();
 
